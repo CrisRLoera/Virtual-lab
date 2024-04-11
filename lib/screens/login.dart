@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -78,7 +79,11 @@ class _LoginState extends State<Login> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      //Navigate the user to the Home page
+                      // TODO: Faltan las validaciones de usuario y contraseña
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text('Por favor ingresa tus datos')));
