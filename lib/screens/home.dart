@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:laboratorio_virtual/screens/materiales.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -32,29 +34,45 @@ class _HomePageState extends State<HomePage> {
                 child: Table(
               children: const [
                 TableRow(children: [
-                  Signature(Icons.science, Colors.green, 'Química'),
-                  Signature(Icons.grid_on, Colors.orange, 'Estructuras')
+                  Signature(
+                      Icon(
+                        Icons.science,
+                        size: 100,
+                      ),
+                      Colors.green,
+                      'Química',
+                      MaterialesScreen()),
+                  Signature(
+                      Icon(
+                        Icons.grid_on,
+                        size: 100,
+                      ),
+                      Colors.orange,
+                      'Materiales',
+                      MaterialesScreen()),
                 ]),
                 TableRow(children: [
-                  Signature(Icons.thermostat, Colors.red, 'Termodinámica'),
-                  Signature(Icons.table_chart, Colors.lightBlue, 'Estructuras')
+                  Signature(
+                      Icon(
+                        Icons.thermostat,
+                        size: 100,
+                      ),
+                      Colors.red,
+                      'Termodinámica',
+                      MaterialesScreen()),
+                  Signature(
+                      Icon(
+                        Icons.table_chart,
+                        size: 100,
+                      ),
+                      Colors.lightBlue,
+                      'Estructuras',
+                      MaterialesScreen())
                 ])
               ],
             )),
             const SizedBox(
               height: 100,
-            ),
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Ir atrás'),
-              ),
             )
           ]),
     );
@@ -62,11 +80,13 @@ class _HomePageState extends State<HomePage> {
 }
 
 class Signature extends StatelessWidget {
-  final IconData iconName;
+  final Icon iconName;
   final Color color;
   final String signatureName;
+  final Widget routePage;
 
-  const Signature(this.iconName, this.color, this.signatureName, {super.key});
+  const Signature(this.iconName, this.color, this.signatureName, this.routePage,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +98,13 @@ class Signature extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(width: 3, color: color)),
-              child: Icon(
-                iconName,
+              child: IconButton(
+                icon: iconName,
                 color: color,
-                size: 100,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => routePage));
+                },
               ),
             ),
             const SizedBox(
