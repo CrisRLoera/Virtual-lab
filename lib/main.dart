@@ -1,5 +1,6 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import './screens/login.dart';
+import 'package:laboratorio_virtual/screens/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,6 +11,19 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Login", home: Login());
+    return MaterialApp(
+      title: "Login",
+      home: AnimatedSplashScreen(
+        splash: const Icon(
+          Icons.science,
+          color: Colors.blue,
+          size: 150,
+        ),
+        splashTransition: SplashTransition.fadeTransition,
+        duration: 1500,
+        nextScreen: const HomePage(),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

@@ -66,7 +66,7 @@ class Signature extends StatelessWidget {
   final Color color;
   final String signatureName;
 
-  const Signature(this.iconName, this.color, this.signatureName);
+  const Signature(this.iconName, this.color, this.signatureName, {super.key});
 
   @override
   Widget build(BuildContext context) {
