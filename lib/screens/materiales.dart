@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:laboratorio_virtual/components/calculadora_component.dart';
+import 'package:laboratorio_virtual/materiales/mat_cal_ceramic_aparent_porosidad.dart';
+import 'package:laboratorio_virtual/materiales/mat_cal_ceramic_densidad_vol.dart';
+import 'package:laboratorio_virtual/materiales/mat_cal_ceramic_v_porosidad.dart';
 
 class MaterialesScreen extends StatefulWidget {
   const MaterialesScreen({super.key});
@@ -20,9 +22,16 @@ class _MaterialesScreenState extends State<MaterialesScreen> {
               TableRow(
                 children: [
                   OptionIconButton(Icon(Icons.calculate), Colors.black,
-                      'Calculadora', CaluladoraComponent())
+                      'Porosidad aparente', CalcPorosidadAp()),
+                  OptionIconButton(Icon(Icons.calculate), Colors.black,
+                      'Porosidad verdadera', CalcPorosidadVe()),
                 ],
-              )
+              ),
+              TableRow(children: [
+                OptionIconButton(Icon(Icons.calculate), Colors.black,
+                    'Densidad volumétrica', CalcDensidadVol()),
+                SizedBox()
+              ]),
             ],
           ),
         ));
@@ -42,7 +51,7 @@ class OptionIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         child: Column(
           children: [
             Container(
@@ -58,12 +67,15 @@ class OptionIconButton extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(
-              height: 10,
+            const Center(
+              child: SizedBox(
+                height: 10,
+              ),
             ),
             Text(
               optionName,
-              style: const TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 12),
+              textAlign: TextAlign.center,
             )
           ],
         ));
