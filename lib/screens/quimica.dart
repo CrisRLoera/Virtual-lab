@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:laboratorio_virtual/materiales/mat_cal_ceramic_aparent_porosidad.dart';
-import 'package:laboratorio_virtual/materiales/mat_cal_ceramic_densidad_vol.dart';
-import 'package:laboratorio_virtual/materiales/mat_cal_ceramic_v_porosidad.dart';
-import 'package:laboratorio_virtual/materiales/mat_cal_num_particula.dart';
-import 'package:laboratorio_virtual/materiales/mat_cal_tam_grano.dart';
+import 'package:laboratorio_virtual/quimica/qim_cal_e_luz.dart';
+import 'package:laboratorio_virtual/quimica/qim_cal_gas_ideal.dart';
 
-class MaterialesScreen extends StatefulWidget {
-  const MaterialesScreen({super.key});
+class QuimicaScreen extends StatefulWidget {
+  const QuimicaScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _MaterialesScreenState createState() => _MaterialesScreenState();
+  _QuimicaScreenState createState() => _QuimicaScreenState();
 }
 
-class _MaterialesScreenState extends State<MaterialesScreen> {
+class _QuimicaScreenState extends State<QuimicaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,24 +18,11 @@ class _MaterialesScreenState extends State<MaterialesScreen> {
         body: Center(
           child: Table(
             children: const [
-              TableRow(
-                children: [
-                  OptionIconButton(Icon(Icons.calculate), Colors.black,
-                      'Porosidad aparente', CalcPorosidadAp()),
-                  OptionIconButton(Icon(Icons.calculate), Colors.black,
-                      'Porosidad verdadera', CalcPorosidadVe()),
-                ],
-              ),
               TableRow(children: [
                 OptionIconButton(Icon(Icons.calculate), Colors.black,
-                    'Densidad volumétrica', CalcDensidadVol()),
+                    'Energia de la luz', CalcELuz()),
                 OptionIconButton(Icon(Icons.calculate), Colors.black,
-                    'Tamaño de grano', CalcTamGrano()),
-              ]),
-              TableRow(children: [
-                OptionIconButton(Icon(Icons.calculate), Colors.black,
-                    'Número de particulas', CalcNumParticula()),
-                Spacer()
+                    'Ec. gases ideales', CalcEcGasIdeal())
               ])
             ],
           ),

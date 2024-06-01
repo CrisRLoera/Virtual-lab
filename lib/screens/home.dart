@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laboratorio_virtual/screens/materiales.dart';
+import 'package:laboratorio_virtual/screens/quimica.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Colors.green,
                       'Química',
-                      MaterialesScreen()),
+                      QuimicaScreen()),
                   Signature(
                       Icon(
                         Icons.grid_on,
