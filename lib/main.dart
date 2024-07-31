@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitUp]);
     return MaterialApp(
-      title: "Login",
+      title: "Virtual Lab",
       home: AnimatedSplashScreen(
         splash: const Icon(
           Icons.science,

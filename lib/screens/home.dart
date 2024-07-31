@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:laboratorio_virtual/screens/estructuras.dart';
 import 'package:laboratorio_virtual/screens/materiales.dart';
 import 'package:laboratorio_virtual/screens/quimica.dart';
+import 'package:laboratorio_virtual/screens/termodinamica.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -60,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Colors.red,
                       'Termodinámica',
-                      MaterialesScreen()),
+                      TermodinamicaScreen()),
                   Signature(
                       Icon(
                         Icons.table_chart,
@@ -68,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Colors.lightBlue,
                       'Estructuras',
-                      MaterialesScreen())
+                      EstructurasScreen())
                 ])
               ],
             )),
